@@ -1,4 +1,5 @@
-FROM php:8.2-apache
-COPY . /var/www/html/
-RUN sed -i 's/80/$PORT/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
-CMD ["apache2-foreground"]
+FROM php:8.2-cli
+WORKDIR /app
+COPY . .
+EXPOSE 8080
+CMD php -S 0.0.0.0:8080
