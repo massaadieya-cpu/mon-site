@@ -1,9 +1,21 @@
 <?php
-$host = $_ENV['MYSQLHOST'] ?? getenv('MYSQLHOST') ?: 'localhost';
-$db = $_ENV['MYSQLDATABASE'] ?? getenv('MYSQLDATABASE') ?? $_ENV['MYSQL_DATABASE'] ?? getenv('MYSQL_DATABASE') ?: 'rh_altutex';
-$user = $_ENV['MYSQLUSER'] ?? getenv('MYSQLUSER') ?: 'root';
-$pass = $_ENV['MYSQLPASSWORD'] ?? getenv('MYSQLPASSWORD') ?: '';
-$port = $_ENV['MYSQLPORT'] ?? getenv('MYSQLPORT') ?: '3306';
+$url = $_ENV['MYSQL_URL'] ?? getenv('MYSQL_URL') ?: null;
+
+if ($url) {
+    $parsed = parse_url($url);
+    $host = $parsed['host'];
+    $port = $parsed['port'];
+    $user = $parsed['user'];
+    $pass = $parsed['pass'];
+    $db   = ltrim($parsed['path'], '/');
+} else {
+    $host = 'localhost';
+    $db   = 'rh_altutex';
+    $user = 'root';
+    $pass = '';
+    $port = '3306';
+}
+
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 try {
