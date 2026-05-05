@@ -1,5 +1,5 @@
 <?php
-$url = $_ENV['MYSQL_URL'] ?? getenv('MYSQL_URL') ?: null;
+$url = $_ENV['MYSQL_PUBLIC_URL'] ?? getenv('MYSQL_PUBLIC_URL') ?: null;
 
 if ($url) {
     $parsed = parse_url($url);
