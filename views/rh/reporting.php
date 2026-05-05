@@ -44,7 +44,7 @@ $pageColor = $activeNav[0]['color'] ?? '#38BDF8';
 $pageBg    = $activeNav[0]['bg']    ?? 'rgba(56,189,248,.15)';
 $pageIcon  = $activeNav[0]['icon']  ?? 'analytics';
 
-$PAL    = ['#38BDF8','#34D399','#F87171','#A78BFA','#FB923C','#F472B6','#22D3EE','#FBBF24','#84CC16','#E879F9'];
+$PAL    = ['#1E6FF1','#0EA5A0','#E5405E','#7C3AED','#F59E0B','#EC4899','#06B6D4','#84CC16','#F97316','#A855F7'];
 $PAL_JS = json_encode($PAL);
 
 $kd_g = $kpi_demo     ?? [];
@@ -968,7 +968,7 @@ foreach($kpis as $k): ?>
   </div>
   <div class="card">
     <div class="card-head"><div><div class="card-title">Segmentation par types de contrats</div><div class="card-sub">Répartition personnel</div></div></div>
-    <div class="chart-w" style="height:185px"><canvas id="cContrats"></canvas></div>
+    <div class="chart-w" style="height:185px"><canvas id="cDept"></canvas></div>
   </div>
 </div>
 
@@ -976,14 +976,14 @@ foreach($kpis as $k): ?>
 <div class="row c2">
   <div class="card">
     <div class="card-head"><div><div class="card-title">Répartition des effectif par département</div><div class="card-sub">Collaborateurs actifs</div></div></div>
-    <div class="chart-w" style="height:220px"><canvas id="cDept"></canvas></div>
+    <div class="chart-w" style="height:220px"><canvas id="cAbsMobile"></canvas></div>
   </div>
   <div class="card">
     <div class="card-head">
       <div><div class="card-title">Évaluation Quantitative du Volume d'Absentéisme Mensuel </div><div class="card-sub">Volume mensuel par mois</div></div>
       <span class="badge <?= $txAbs>10?'badge-r':($txAbs>5?'badge-o':'badge-g') ?>"><?= pct($txAbs) ?></span>
     </div>
-    <div class="chart-w" style="height:220px"><canvas id="cAbsMobile"></canvas></div>
+    <div class="chart-w" style="height:220px"><canvas id="cTovMois"></canvas></div>
   </div>
 </div>
 
@@ -1016,7 +1016,7 @@ foreach($kpis as $k): ?>
 <div class="row c2">
   <div class="card">
     <div class="card-head"><div><div class="card-title">Évolution du turnover par mois</div><div class="card-sub">Sorties et démissions </div></div><span class="badge <?= $txDep>10?'badge-r':($txDep>5?'badge-o':'badge-g') ?>"><?= pct($txDep) ?></span></div>
-    <div class="chart-w" style="height:215px"><canvas id="cTovMois"></canvas></div>
+    <div class="chart-w" style="height:215px"><canvas id="cSynthTendAbs"></canvas></div>
   </div>
   <div class="card">
     <div class="card-head"><div><div class="card-title">Répartition de la parité par département</div><div class="card-sub">Parité H/F</div></div></div>
@@ -1057,7 +1057,7 @@ foreach($kpis as $k): ?>
     <div class="card-head">
       <div><div class="card-title">Tendance absences par département</div><div class="card-sub">Absences totales vs employés touchés</div></div>
     </div>
-    <div class="chart-w" style="height:275px"><canvas id="cSynthTendAbs"></canvas></div>
+    <div class="chart-w" style="height:275px"><canvas id="cContrats"></canvas></div>
   </div>
 </div>
 

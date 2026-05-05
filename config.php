@@ -1,10 +1,10 @@
 <?php
 if (getenv('MYSQLHOST')) {
-    $host = 'trolley.proxy.rlwy.net';
-    $port = '12388';
-    $db   = 'railway';
-    $user = 'root';
-    $pass = 'dXRLbawXJqRwzuRyciEhabPhIbuzbUsP';
+    $host = getenv('MYSQLHOST');
+    $port = getenv('MYSQLPORT') ?: '3306';
+    $db   = getenv('MYSQLDATABASE') ?: getenv('MYSQL_DATABASE') ?: 'railway';
+    $user = getenv('MYSQLUSER') ?: 'root';
+    $pass = getenv('MYSQLPASSWORD') ?: '';
 } else {
     $host = 'localhost';
     $port = '3306';
