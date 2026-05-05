@@ -1,20 +1,9 @@
 <?php
-$url = $_ENV['MYSQL_PUBLIC_URL'] ?? getenv('MYSQL_PUBLIC_URL') ?: null;
-
-if ($url) {
-    $parsed = parse_url($url);
-    $host = $parsed['host'];
-    $port = $parsed['port'];
-    $user = $parsed['user'];
-    $pass = $parsed['pass'];
-    $db   = ltrim($parsed['path'], '/');
-} else {
-    $host = 'localhost';
-    $db   = 'rh_altutex';
-    $user = 'root';
-    $pass = '';
-    $port = '3306';
-}
+$host = getenv('MYSQLHOST') ?: 'localhost';
+$db   = getenv('MYSQLDATABASE') ?: getenv('MYSQL_DATABASE') ?: 'rh_altutex';
+$user = getenv('MYSQLUSER') ?: 'root';
+$pass = getenv('MYSQLPASSWORD') ?: '';
+$port = getenv('MYSQLPORT') ?: '3306';
 
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
