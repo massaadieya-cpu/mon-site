@@ -1,10 +1,19 @@
 <?php
-$host = getenv('MYSQLHOST') ?: 'localhost';
-$db   = getenv('MYSQLDATABASE') ?: getenv('MYSQL_DATABASE') ?: 'rh_altutex';
-$user = getenv('MYSQLUSER') ?: 'root';
-$pass = getenv('MYSQLPASSWORD') ?: '';
-$port = getenv('MYSQLPORT') ?: '3306';
-
+if (getenv('MYSQLHOST')) {
+    // En ligne sur Railway
+    $host = 'trolley.proxy.rlwy.net';
+    $port = '12388';
+    $db   = 'railway';
+    $user = 'root';
+    $pass = 'dXRLbawXJqRwzuRyciEhabPhIbuzbUsP';
+} else {
+    // En local sur XAMPP
+    $host = 'localhost';
+    $port = '3306';
+    $db   = 'rh_altutex';
+    $user = 'root';
+    $pass = '';
+}
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 try {
