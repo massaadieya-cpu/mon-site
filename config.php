@@ -1,6 +1,6 @@
 <?php
 $host = $_ENV['MYSQLHOST'] ?? getenv('MYSQLHOST') ?: 'localhost';
-$db   = $_ENV['MYSQL_DATABASE'] ?? getenv('MYSQL_DATABASE') ?: 'rh_altutex';
+$db = $_ENV['MYSQLDATABASE'] ?? getenv('MYSQLDATABASE') ?? $_ENV['MYSQL_DATABASE'] ?? getenv('MYSQL_DATABASE') ?: 'rh_altutex';
 $user = $_ENV['MYSQLUSER'] ?? getenv('MYSQLUSER') ?: 'root';
 $pass = $_ENV['MYSQLPASSWORD'] ?? getenv('MYSQLPASSWORD') ?: '';
 $port = $_ENV['MYSQLPORT'] ?? getenv('MYSQLPORT') ?: '3306';
